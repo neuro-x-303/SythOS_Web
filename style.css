@@ -341,14 +341,14 @@ body {
 }
 
 .hero-logo-card {
-  background: #FFFFFF;
-  border: 1px solid #DBEAFE;
-  border-radius: 28px;
-  padding: 40px 32px 32px 32px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 24px 16px;
   width: 100%;
-  max-width: 380px;
+  max-width: 480px;
   text-align: center;
-  box-shadow: 0 24px 60px rgba(37, 99, 235, 0.1), 0 4px 16px rgba(15, 23, 42, 0.05);
+  box-shadow: none;
   position: relative;
   overflow: visible;
 }
@@ -412,12 +412,12 @@ body {
   width: 288px;
   height: 288px;
   border-radius: 72px;
-  background: transparent;
-  border: none;
+  background: linear-gradient(145deg, #EFF6FF 0%, #DBEAFE 100%);
+  border: 2px solid #BFDBFE;
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: float-logo 4s ease-in-out infinite;
+  animation: float-logo 4s ease-in-out infinite, glow-pulse 4s ease-in-out infinite;
   position: relative;
   z-index: 2;
   flex-shrink: 0;
