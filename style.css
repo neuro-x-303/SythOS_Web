@@ -215,7 +215,7 @@ body {
   justify-content: space-between;
   gap: 40px;
   background:
-    linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(240,248,255,0.88) 50%, rgba(255,255,255,0.75) 100%),
+    linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(240,248,255,0.50) 50%, rgba(255,255,255,0.40) 100%),
     url('assets/hero_bg.png') center center / cover no-repeat;
   position: relative;
 }
