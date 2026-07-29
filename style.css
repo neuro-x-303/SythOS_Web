@@ -313,18 +313,18 @@ body {
 }
 
 @keyframes orbit-dot {
-  from { transform: rotate(0deg) translateX(80px) rotate(0deg); }
-  to   { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+  from { transform: rotate(0deg) translateX(192px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(192px) rotate(-360deg); }
 }
 
 @keyframes orbit-dot-2 {
-  from { transform: rotate(120deg) translateX(80px) rotate(-120deg); }
-  to   { transform: rotate(480deg) translateX(80px) rotate(-480deg); }
+  from { transform: rotate(120deg) translateX(192px) rotate(-120deg); }
+  to   { transform: rotate(480deg) translateX(192px) rotate(-480deg); }
 }
 
 @keyframes orbit-dot-3 {
-  from { transform: rotate(240deg) translateX(80px) rotate(-240deg); }
-  to   { transform: rotate(600deg) translateX(80px) rotate(-600deg); }
+  from { transform: rotate(240deg) translateX(192px) rotate(-240deg); }
+  to   { transform: rotate(600deg) translateX(192px) rotate(-600deg); }
 }
 
 @keyframes status-pop {
@@ -356,8 +356,8 @@ body {
 /* Outer rotating dashed ring */
 .logo-orbit-wrapper {
   position: relative;
-  width: 180px;
-  height: 180px;
+  width: 432px;
+  height: 432px;
   margin: 0 auto 24px auto;
   display: flex;
   align-items: center;
@@ -385,33 +385,33 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 10px;
-  height: 10px;
-  margin-top: -5px;
-  margin-left: -5px;
+  width: 14px;
+  height: 14px;
+  margin-top: -7px;
+  margin-left: -7px;
   border-radius: 50%;
   background: var(--primary-blue);
-  box-shadow: 0 0 8px rgba(37, 99, 235, 0.6);
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.7);
   animation: orbit-dot 6s linear infinite;
 }
 
 .orbit-dot:nth-child(2) {
   background: #059669;
-  box-shadow: 0 0 8px rgba(5, 150, 105, 0.6);
+  box-shadow: 0 0 10px rgba(5, 150, 105, 0.7);
   animation: orbit-dot-2 6s linear infinite;
 }
 
 .orbit-dot:nth-child(3) {
   background: #D97706;
-  box-shadow: 0 0 8px rgba(217, 119, 6, 0.6);
+  box-shadow: 0 0 10px rgba(217, 119, 6, 0.7);
   animation: orbit-dot-3 6s linear infinite;
 }
 
 /* Central floating logo circle */
 .logo-circle {
-  width: 120px;
-  height: 120px;
-  border-radius: 30px;
+  width: 288px;
+  height: 288px;
+  border-radius: 72px;
   background: linear-gradient(145deg, #EFF6FF 0%, #DBEAFE 100%);
   border: 2px solid #BFDBFE;
   display: flex;
@@ -424,7 +424,7 @@ body {
 }
 
 .logo-circle img {
-  height: 76px;
+  height: 182px;
   width: auto;
   object-fit: contain;
 }
@@ -825,25 +825,24 @@ body {
   }
 
   .logo-orbit-wrapper {
-    width: 140px;
-    height: 140px;
+    width: 300px;
+    height: 300px;
     margin-bottom: 16px;
   }
 
   .logo-circle {
-    width: 90px;
-    height: 90px;
-    border-radius: 22px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50px;
   }
 
   .logo-circle img {
-    height: 56px;
+    height: 126px;
   }
 
   .orbit-dot {
-    animation: orbit-dot 6s linear infinite;
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
   }
 
   .section {
