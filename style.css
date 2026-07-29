@@ -291,60 +291,159 @@ body {
   transition: all 0.2s ease;
 }
 
-/* SythOS Logo Emblem Card */
+/* ── Animated Hero Logo Keyframes ─────────────────────────────────────────── */
+@keyframes float-logo {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes spin-ring {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-ring-reverse {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.18), 0 8px 40px rgba(37, 99, 235, 0.10); }
+  50% { box-shadow: 0 0 0 18px rgba(37, 99, 235, 0.04), 0 8px 60px rgba(37, 99, 235, 0.22); }
+}
+
+@keyframes orbit-dot {
+  from { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+}
+
+@keyframes orbit-dot-2 {
+  from { transform: rotate(120deg) translateX(80px) rotate(-120deg); }
+  to   { transform: rotate(480deg) translateX(80px) rotate(-480deg); }
+}
+
+@keyframes orbit-dot-3 {
+  from { transform: rotate(240deg) translateX(80px) rotate(-240deg); }
+  to   { transform: rotate(600deg) translateX(80px) rotate(-600deg); }
+}
+
+@keyframes status-pop {
+  0% { opacity: 0; transform: translateX(-12px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* SythOS Animated Logo Card */
 .hero-media {
   flex: 0.9;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .hero-logo-card {
   background: #FFFFFF;
-  border: 1px solid var(--border-light);
-  border-radius: 20px;
-  padding: 36px;
+  border: 1px solid #DBEAFE;
+  border-radius: 28px;
+  padding: 40px 32px 32px 32px;
   width: 100%;
-  max-width: 360px;
+  max-width: 380px;
   text-align: center;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 24px 60px rgba(37, 99, 235, 0.1), 0 4px 16px rgba(15, 23, 42, 0.05);
   position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
+  overflow: visible;
 }
 
-.logo-circle {
-  width: 90px;
-  height: 90px;
-  margin: 0 auto 16px auto;
-  border-radius: 24px;
-  background: #EFF6FF;
-  border: 1px solid #BFDBFE;
+/* Outer rotating dashed ring */
+.logo-orbit-wrapper {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 24px auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.15);
+}
+
+.orbit-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px dashed rgba(37, 99, 235, 0.2);
+  animation: spin-ring 12s linear infinite;
+}
+
+.orbit-ring-2 {
+  position: absolute;
+  inset: 16px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(37, 99, 235, 0.12);
+  animation: spin-ring-reverse 8s linear infinite;
+}
+
+/* Orbiting dots */
+.orbit-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+  margin-left: -5px;
+  border-radius: 50%;
+  background: var(--primary-blue);
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.6);
+  animation: orbit-dot 6s linear infinite;
+}
+
+.orbit-dot:nth-child(2) {
+  background: #059669;
+  box-shadow: 0 0 8px rgba(5, 150, 105, 0.6);
+  animation: orbit-dot-2 6s linear infinite;
+}
+
+.orbit-dot:nth-child(3) {
+  background: #D97706;
+  box-shadow: 0 0 8px rgba(217, 119, 6, 0.6);
+  animation: orbit-dot-3 6s linear infinite;
+}
+
+/* Central floating logo circle */
+.logo-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 30px;
+  background: linear-gradient(145deg, #EFF6FF 0%, #DBEAFE 100%);
+  border: 2px solid #BFDBFE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float-logo 4s ease-in-out infinite, glow-pulse 4s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
 }
 
 .logo-circle img {
-  height: 56px;
+  height: 76px;
   width: auto;
   object-fit: contain;
 }
 
 .hero-logo-card h2 {
   font-family: var(--font-heading);
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 900;
   color: var(--text-main);
-  letter-spacing: -0.5px;
+  letter-spacing: -0.8px;
   margin-bottom: 4px;
 }
 
 .hero-logo-card p.tagline {
   color: var(--primary-blue);
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 700;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
+  letter-spacing: 0.3px;
 }
 
 .mini-status-grid {
@@ -356,25 +455,45 @@ body {
 .mini-status-item {
   background: #F8FAFC;
   border: 1px solid var(--border-light);
-  border-radius: 8px;
-  padding: 8px 12px;
+  border-radius: 10px;
+  padding: 9px 14px;
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 11.5px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--text-muted);
+  opacity: 0;
+  animation: status-pop 0.5s ease forwards;
 }
 
+.mini-status-item:nth-child(1) { animation-delay: 0.3s; }
+.mini-status-item:nth-child(2) { animation-delay: 0.6s; }
+.mini-status-item:nth-child(3) { animation-delay: 0.9s; }
+
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: glow-pulse 2s ease-in-out infinite;
 }
 
 .dot.green { background: #059669; }
+.dot.green::after { background: #059669; }
 .dot.amber { background: #D97706; }
+.dot.amber::after { background: #D97706; }
 .dot.blue  { background: #2563EB; }
+.dot.blue::after  { background: #2563EB; }
 
 /* Section Styles */
 .section {
@@ -702,17 +821,29 @@ body {
 
   .hero-logo-card {
     max-width: 100%;
-    padding: 24px 16px;
+    padding: 28px 16px 24px 16px;
+  }
+
+  .logo-orbit-wrapper {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 16px;
   }
 
   .logo-circle {
-    width: 76px;
-    height: 76px;
-    margin-bottom: 12px;
+    width: 90px;
+    height: 90px;
+    border-radius: 22px;
   }
 
   .logo-circle img {
-    height: 46px;
+    height: 56px;
+  }
+
+  .orbit-dot {
+    animation: orbit-dot 6s linear infinite;
+    width: 8px;
+    height: 8px;
   }
 
   .section {
