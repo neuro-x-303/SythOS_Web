@@ -129,10 +129,18 @@
     /* Plans Grid */
     .plans-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
       margin-bottom: 60px;
     }
+    
+    @media (max-width: 1200px) {
+      .plans-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+    }
+
     
     .plan-card {
       background: #FFFFFF;
@@ -522,6 +530,27 @@
 
       <!-- Core Plans Grid -->
       <div class="plans-grid">
+        
+        <!-- Plan 0: Free Demo -->
+        <div class="plan-card">
+          <div>
+            <div class="plan-name">Free Demo</div>
+            <div class="plan-price-container">
+              <span class="plan-price">₹0</span>
+              <span class="plan-period">/ 15 days</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-sub); margin-bottom: 24px;">Evaluation tier for testing core offline site operations.</p>
+          </div>
+          <ul class="plan-features">
+            <li><span class="check-icon">✓</span> Basic Offline Functionality</li>
+            <li><span class="check-icon">✓</span> Local Database Storage</li>
+            <li><span class="check-icon">✓</span> 15-Day Access Limit</li>
+            <li class="unavailable"><span class="check-icon">✗</span> No Cloud Storage</li>
+            <li class="unavailable"><span class="check-icon">✗</span> No Role-Based Access (RBAC)</li>
+            <li class="unavailable"><span class="check-icon">✗</span> No Geo Tracking Attendance</li>
+          </ul>
+          <a href="https://console.sythos.vertexhalex.com/?demo=true" target="_blank" class="btn-outline" style="text-align: center; justify-content: center; width: 100%;">Request Free Demo</a>
+        </div>
         
         <!-- Plan 1: Standard -->
         <div class="plan-card">
